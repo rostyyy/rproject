@@ -1,0 +1,312 @@
+/* CSS змінні для кольорів (можна легко змінити всю колірну схему) */
+:root {
+    --black: #121212;
+    --dark-gray: #1e1e1e;
+    --gray: #292929;
+    --light-gray: #3d3d3d;
+    --white: #f5f5f5;
+    --accent: #ffffff;
+}
+
+/* Анімація для градієнтного фону */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Основні стилі для body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #1a1a1a, #2a2a2a, #1e1e1e, #2d2d2d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Контейнер для основного вмісту */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Стилі для навігаційного меню */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(18, 18, 18, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* Центральна частина навігації (для логотипу) */
+.nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Стилі для логотипу в навігації */
+.nav-logo {
+    max-width: 120px;
+    height: auto;
+    margin: 0 2rem;
+}
+
+/* Контейнер для посилань в навігації */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Стилі для посилань в навігації */
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+/* Стилі при наведенні на посилання */
+.nav-link:hover {
+    color: var(--accent);
+}
+
+/* Псевдоелемент для ефекту підкреслення */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+/* Зміна ширини псевдоелемента при наведенні */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Стилі для кнопки GitHub */
+.github-btn {
+    display: inline-block;
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Стилі при наведенні на кнопку GitHub */
+.github-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Стилі для заголовка сторінки */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 3rem 0;
+}
+
+/* Стилі для основного логотипу */
+.logo {
+    max-width: 700px;
+    height: auto;
+    margin: 4rem 0;
+}
+
+/* Стилі для підзаголовка */
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    margin-bottom: 2rem;
+}
+
+/* Стилі для заголовка секції проектів */
+.projects-header {
+    text-align: center;
+    margin: 4rem 0 2rem;
+    color: var(--accent);
+    font-size: 2rem;
+    position: relative;
+}
+
+/* Псевдоелемент для декоративної лінії під заголовком */
+.projects-header::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: var(--accent);
+    margin: 1rem auto 0;
+    opacity: 0.5;
+}
+
+/* Сітка проектів */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Стилі для картки проекту */
+.project-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Вміст картки проекту */
+.project-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ефекти при наведенні на картку проекту */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255,255,255,0.1);
+    background-color: rgba(40, 40, 40, 0.8);
+}
+
+/* Стилі для заголовка в картці проекту */
+.project-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+}
+
+/* Стилі для посилання в картці проекту */
+.project-link {
+    display: inline-block;
+    background-color: var(--gray);
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    border: 1px solid var(--light-gray);
+    align-self: flex-start;
+}
+
+/* Ефекти при наведенні на посилання проекту */
+.project-link:hover {
+    background-color: var(--light-gray);
+    transform: translateY(-2px);
+}
+
+/* Стилі для підвалу сторінки */
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+/* Стилі для інформаційних секцій */
+.info-section {
+    margin: 4rem 0;
+    padding: 2.5rem;
+    background-color: rgba(30,30,30,0.7);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Стилі для заголовків в інформаційних секціях */
+.info-section h2 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+/* Медіа-запити для адаптації під мобільні пристрої */
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
+    
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .nav-center {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-logo {
+        max-width: 100px;
+        margin: 0.5rem 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        margin-top: 1.5rem;
+    }
+    
+    .projects-header {
+        margin: 3rem 0 1.5rem;
+        font-size: 1.7rem;
+    }
+    
+    .logo {
+        max-width: 280px;
+        margin: 2rem 0;
+    }
+    
+    .github-btn {
+        margin-top: 1rem;
+    }
+    
+    .info-section {
+        margin: 3rem 0;
+        padding: 1.5rem;
+    }
+}
